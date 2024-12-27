@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'identifier' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
     }
@@ -39,17 +40,33 @@ class LoginRequest extends FormRequest
      */
     public function authenticate(): void
     {
-        $this->ensureIsNotRateLimited();
+        // $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+        // if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        //     RateLimiter::hit($this->throttleKey());
 
+        //     throw ValidationException::withMessages([
+        //         'email' => trans('auth.failed'),
+        //     ]);
+        // }
+
+        // RateLimiter::clear($this->throttleKey());
+
+        $credentials = $this->only('password');
+
+        $user = User::where('email', $this->identifier)
+                    ->orWhereHas('tenagaKependidikan', function ($query) {
+                        $query->where('nip', $this->identifier);
+                    })
+                    ->first();
+
+        if (!$user || !Auth::validate(['email' => $user->email, 'password' => $this->password])) {
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'identifier' => __('The provided credentials are incorrect.'),
             ]);
         }
 
-        RateLimiter::clear($this->throttleKey());
+        Auth::login($user);
     }
 
     /**

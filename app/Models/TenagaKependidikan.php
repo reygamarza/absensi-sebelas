@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WaliKelas extends Model
+class TenagaKependidikan extends Model
 {
     protected $primaryKey = 'nip';
     protected $fillable = ['nip', 'id_user', 'jenis_kelamin', 'nuptk', 'no_telp'];
@@ -21,4 +21,3 @@ class WaliKelas extends Model
         return $this->hasMany(Kelas::class, 'nip');
     }
 }
-

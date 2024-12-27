@@ -48,9 +48,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function waliKelas()
+    public function tenagaKependidikan()
     {
-        return $this->hasOne(WaliKelas::class, 'id_user');
+        return $this->hasOne(TenagaKependidikan::class, 'id_user');
     }
 
     public function waliSiswa()

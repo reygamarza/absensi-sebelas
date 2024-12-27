@@ -17,35 +17,35 @@ class UserSeeder extends Seeder
             'nama' => 'Reyga Marza Ramadhan',
             'email' => 'siswa@gmail.com',
             'password' => password_hash("siswa123", PASSWORD_DEFAULT),
-            'role' => 'Siswa',
+            'role' => 'siswa',
         ]);
 
         User::create([
             'nama' => 'Operator',
             'email' => 'operator@gmail.com',
             'password' => password_hash("operator123", PASSWORD_DEFAULT),
-            'role' => 'Operator',
+            'role' => 'operator',
         ]);
 
         User::create([
             'nama' => 'Hanifah, S.Pd',
             'email' => 'kesiswaan@gmail.com',
             'password' => password_hash("kesiswaan123", PASSWORD_DEFAULT),
-            'role' => 'Kesiswaan',
+            'role' => 'kesiswaan',
         ]);
 
         User::create([
             'nama' => 'Ani Nuraeni, M.Kom',
             'email' => 'walikelas@gmail.com',
             'password' => password_hash("walikelas123", PASSWORD_DEFAULT),
-            'role' => 'WaliKelas',
+            'role' => 'waliKelas',
         ]);
 
         User::create([
             'nama' => 'Yudi Fatir',
             'email' => 'walisiswa@gmail.com',
             'password' => password_hash("walisiswa123", PASSWORD_DEFAULT),
-            'role' => 'WaliSiswa',
+            'role' => 'waliSiswa',
         ]);
     }
 }

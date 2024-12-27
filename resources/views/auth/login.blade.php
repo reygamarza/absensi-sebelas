@@ -90,14 +90,14 @@
                     <div class="col-sm-6 align-self-center">
                         <div class="sign-in-from">
                             <h1 class="mb-0">Sign in</h1>
-                            <p>Enter your email address and password to access admin panel.</p>
+                            <p>Masukan Email atau NIP anda untuk Sign in.</p>
                             <form method="POST" action="{{ route('login') }}" class="mt-4">
                                 @csrf
-                                <!-- Email Address -->
+                                <!-- Identifier -->
                                 <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <input type="email" class="form-control mb-0" id="email" name="email" placeholder="Enter email" value="{{ old('email') }}" required autofocus autocomplete="username">
-                                    @error('email')
+                                    <label for="identifier">Email / NIP</label>
+                                    <input type="text" class="form-control mb-0" id="identifier" name="identifier" placeholder="Enter Email / NIP" required autofocus autocomplete="username">
+                                    @error('identifier')
                                         <div class="text-danger mt-2">{{ $message }}</div>
                                     @enderror
                                 </div>

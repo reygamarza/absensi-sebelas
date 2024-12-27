@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wali_kelas', function (Blueprint $table) {
+        Schema::create('tenaga_kependidikans', function (Blueprint $table) {
             $table->string('nip', 18)->primary();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wali_kelas');
+        Schema::dropIfExists('tenaga_kependidikans');
     }
 };

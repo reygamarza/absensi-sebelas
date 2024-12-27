@@ -14,9 +14,9 @@ class Kelas extends Model
         return $this->belongsTo(Jurusan::class, 'id_jurusan');
     }
 
-    public function waliKelas()
+    public function tenagaKependidikan()
     {
-        return $this->belongsTo(WaliKelas::class, 'nip');
+        return $this->belongsTo(TenagaKependidikan::class, 'nip');
     }
 
     public function siswa()
