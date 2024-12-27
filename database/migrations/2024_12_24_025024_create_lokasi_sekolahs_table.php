@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alamat_sekolahs', function (Blueprint $table) {
-            $table->increments('id_alamat_sekolah');
+        Schema::create('lokasi_sekolahs', function (Blueprint $table) {
+            $table->increments('id_lokasi_sekolah');
             $table->string('latitude');
             $table->string('longitude');
             $table->float('radius_maksimum')->default(200.0)->comment('meters');
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('alamat_sekolahs');
+        Schema::dropIfExists('lokasi_sekolahs');
     }
 };

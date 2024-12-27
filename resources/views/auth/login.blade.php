@@ -89,14 +89,14 @@
                 <div class="row no-gutters">
                     <div class="col-sm-6 align-self-center">
                         <div class="sign-in-from">
-                            <h1 class="mb-0">Sign in</h1>
-                            <p>Masukan Email atau NIP anda untuk Sign in.</p>
+                            <h1 class="mb-0">Sign In</h1>
+                            <p>Silakan masukkan Email atau NIP Anda untuk masuk sign in.</p>
                             <form method="POST" action="{{ route('login') }}" class="mt-4">
                                 @csrf
                                 <!-- Identifier -->
                                 <div class="form-group">
-                                    <label for="identifier">Email / NIP</label>
-                                    <input type="text" class="form-control mb-0" id="identifier" name="identifier" placeholder="Enter Email / NIP" required autofocus autocomplete="username">
+                                    <label for="identifier">Email atau NIP</label>
+                                    <input type="text" class="form-control mb-0" id="identifier" name="identifier" placeholder="Masukkan Email atau NIP" required autofocus autocomplete="username">
                                     @error('identifier')
                                         <div class="text-danger mt-2">{{ $message }}</div>
                                     @enderror
@@ -104,8 +104,8 @@
 
                                 <!-- Password -->
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control mb-0" id="password" name="password" placeholder="Password" required autocomplete="current-password">
+                                    <label for="password">Kata Sandi</label>
+                                    <input type="password" class="form-control mb-0" id="password" name="password" placeholder="Masukkan Kata Sandi" required autocomplete="current-password">
                                     @error('password')
                                         <div class="text-danger mt-2">{{ $message }}</div>
                                     @enderror

@@ -55,14 +55,20 @@ class LoginRequest extends FormRequest
         $credentials = $this->only('password');
 
         $user = User::where('email', $this->identifier)
-                    ->orWhereHas('tenagaKependidikan', function ($query) {
-                        $query->where('nip', $this->identifier);
-                    })
-                    ->first();
+            ->orWhereHas('tenagaKependidikan', function ($query) {
+                $query->where('nip', $this->identifier);
+            })
+            ->first();
 
-        if (!$user || !Auth::validate(['email' => $user->email, 'password' => $this->password])) {
+        if (!$user || !in_array($user->role, ['operator', 'kesiswaan', 'waliKelas'])) {
             throw ValidationException::withMessages([
-                'identifier' => __('The provided credentials are incorrect.'),
+                'identifier' => __('Pengguna tidak ditemukan atau role tidak sesuai.'),
+            ]);
+        }
+
+        if (!Auth::validate(['email' => $user->email, 'password' => $this->password])) {
+            throw ValidationException::withMessages([
+                'identifier' => __('Kredensial yang diberikan tidak benar.'),
             ]);
         }
 
@@ -97,6 +103,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }
