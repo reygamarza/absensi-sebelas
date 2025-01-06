@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('waktu_presensis', function (Blueprint $table) {
             $table->increments('id_waktu_presensi');
-            $table->time('jam_masuk');
+            $table->time('presensi_masuk');
             $table->time('batas_presensi_masuk');
-            $table->time('jam_pulang');
+            $table->time('presensi_pulang');
             $table->time('batas_presensi_pulang');
             $table->timestamps();
         });

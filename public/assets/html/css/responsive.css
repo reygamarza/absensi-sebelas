@@ -82,7 +82,7 @@ NOTE: This file contains the styling for responsive Template.
 	body.icon-with-text .iq-sidebar-logo a { margin: 0 auto; }
 
 	/* top-tab-horizontal */
-	.top-tab-horizontal .iq-top-navbar .iq-sidebar-logo .top-logo { display: block; }
+	.top-tab-horizontal .iq-sidebar-logo .top-logo { display: block; }
 	.top-tab-horizontal .iq-sidebar-logo { padding: 0; }
 	.top-tab-horizontal .content-page { padding: 80px 15px 0; width: 100%; margin-left: 0; }
 	.top-tab-horizontal .iq-footer { margin-left: 0; }
@@ -160,7 +160,7 @@ NOTE: This file contains the styling for responsive Template.
 	.display-5 { font-size: 2rem; font-weight: 300; }
 	.display-6 { font-size: 1.5rem; font-weight: 300; }
 	.iq-top-navbar .navbar { position: relative; display: inherit; }
-	.iq-top-navbar .navbar-toggler { display: block; right: 85px; top: 18px; position: absolute; color: #0084ff; background: #e5f2ff; border: none; padding: 7px 10px; border-radius: 5px; font-size: 24px; }
+	.iq-top-navbar .navbar-toggler { display: block; right: 85px; top: 18px; position: fixed; color: #0084ff; background: #e5f2ff; border: none; padding: 7px 10px; border-radius: 5px; font-size: 24px; }
 	.navbar-collapse { position: absolute; top: 75px; left: 0; width: 100%; background: #fff; -webkit-box-shadow: 0px 5px 12px 0px rgba(55, 73, 72, 0.15); -moz-box-shadow: 0px 5px 12px 0px rgba(55, 73, 72, 0.15); box-shadow: 0px 5px 12px 0px rgba(55, 73, 72, 0.15); }
 	.navbar-nav.navbar-list { float: right; display: inline-block; }
 	.iq-top-navbar .iq-navbar-custom .iq-menu-bt { right: 130px; top: 18px; }
@@ -263,3 +263,11 @@ NOTE: This file contains the styling for responsive Template.
 	.wizard-step { width: 100%; }
 }
 @media(max-width:359px) { }
+
+
+#map {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    z-index: 1; /
+}

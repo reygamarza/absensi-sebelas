@@ -23,5 +23,14 @@ class Kelas extends Model
     {
         return $this->hasMany(Siswa::class, 'id_kelas');
     }
-}
 
+    public function scopeSearch($query, $value)
+    {
+        return $query->whereHas('jurusan', function ($q) use ($value) {
+            $q->where('nama_jurusan', 'like', "%{$value}%");
+        })->orWhereHas('tenagaKependidikan.user', function ($q) use ($value) {
+            $q->where('nama', 'like', "%{$value}%");
+        })->orWhere('tingkat', 'like', "%{$value}%")
+            ->orWhere('nomor_kelas', 'like', "%{$value}%");
+    }
+}
